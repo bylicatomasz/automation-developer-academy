@@ -1,0 +1,286 @@
+  116  cd Ansible/
+  117  ls
+  118  cd lab_1/
+  119  ls
+  120  cat inventory_ac 
+  121  ls
+  122  vim main.yml
+  123  ls
+  124  cat main.yml 
+  125  ansible-playbook ac main.yml -i inventory_ac 
+  126  ansible-playbook main.yml ac -i inventory_ac 
+  127  ansible-playbook --help
+  128  ansible-playbook ac -i inventory_ac main.yml 
+  129  ansible-playbook -i inventory_ac main.yml -l ac
+  130  ansible ac -m setup -i inventory_ac 
+  131  ansible-playbook -i inventory_ac main.yml -l ac | less
+  132  ansible ac -m setup -i inventory_ac | less
+  133  ansible-playbook -i inventory_ac main.yml -l ac 
+  134  ansible-playbook -i inventory_ac main.yml -l ac | less
+  135  ansible-playbook -i inventory_ac main.yml -l ac 
+  136  cd Ansible/lab_1/
+  137  ls
+  138  ansible-playbook main.yml -i inventory_ac 
+  139  ls
+  140  ansible-playbook main.yml -i inventory_ac 
+  141  cat inventory_ac 
+  142  ansible-playbook main.yml -i inventory_ac 
+  143  ansible-playbook main.yml -i inventory_ac -e {dogs:[name:kuku]}
+  144  ansible-playbook main.yml -i inventory_ac -e {dogs:[name:"kuku"]}
+  145  ansible-playbook main.yml -i inventory_ac -e {dogs:{name:"kuku"}}
+  146  ansible-playbook main.yml -i inventory_ac -e "{dogs:{name:"kuku"}}"
+  147  ansible-playbook main.yml -i inventory_ac -e "{dog:{name:"kuku"}}"
+  148  ansible-playbook main.yml -i inventory_ac -e {"dog":{"name":"kuku"}}
+  149  ansible-playbook main.yml -i inventory_ac --extra-vars '{"dog":{"name":"kuku"}}'
+  150  ansible-playbook main.yml -i inventory_ac --extra-vars '{"dog":{"name":"kuku","age":1000}}'
+  151  exit
+  152  ls
+  153  cd Ansible/
+  154  ls
+  155  ls 
+  156  ls labs
+  157  ls labs/
+  158  ls labs/lab_08/
+  159  ls
+  160  ls labs/
+  161  ls labs/lab_01
+  162  ls labs/lab_1
+  163  cat labs/lab_1/inventory_ac 
+  164  ls
+  165  id
+  166  sudo ls
+  167  cd /home/ac/Ansible/labs/lab_1/4
+  168  cd /home/ac/Ansible/labs/lab_1/
+  169  pwd
+  170  cd ..
+  171  ls -l
+  172  tree
+  173  cd lab_1
+  174  ls
+  175  cat /home/ac/Ansible/labs/lab_1/inventory_ac
+  176  anisible –-version
+  177  anisible --version
+  178  ansible --version
+  179  ls -l /usr/share/ansible/plugins/modules
+  180  ls -l /home/ac/.ansible/plugins/modules
+  181  ls -l /usr/lib/python3.6/site-packages/ansible
+  182  ls -l /usr/lib/python3.6/site-packages/ansible/modules
+  183  cat /etc/ansible/ansible.cfg | less
+  184  cat /etc/ansible/ansible.cfg 
+  185  cat /etc/ansible/ansible.cfg | less
+  186  ansible-doc copy
+  187  ansible ac -m ping -i inventory_ac 
+  188  cat inventory_ac 
+  189  ansible  -m ping -i inventory_ac 
+  190  ansible all  -m ping -i inventory_ac 
+  191  ls -l
+  192  id
+  193  whoami
+  194  ansible-doc command
+  195  ansible all  -m command -i inventory_ac -a pwd
+  196  ansible ac  -m command -i inventory_ac -a df -lh
+  197  ansible ac  -m command -i inventory_ac -a "df -lh"
+  198  df -lh
+  199  ansible ac  -m command -i inventory_ac -a "df -lh"
+  200  vim inventory_ac 
+  201  ansible ac  -m command -i inventory_ac -a "df -lh"
+  202  ansible ac  -i inventory_ac -a "df -lh"
+  203  cat /etc/ansible/ansible.cfg | grep module
+  204  history
+  205  ansible ac  -i inventory_ac -a "du ./"
+  206  history 
+  207  ansible ac  -i inventory_ac -a "ddu ./"
+  208  vim inventory_ac 
+  209  ansible ac  -i inventory_ac -a id
+  210  vim inventory_ac 
+  211  ansible ac110  -i inventory_ac -a id
+  212  passwd 
+  213  ansible ac110  -i inventory_ac -a passwd
+  214  passwd --help 
+  215  top 
+  216  free -m
+  217  ansible ac110  -i inventory_ac -a "free -a"
+  218  ansible ac110  -i inventory_ac -a "free -m"
+  219  ansible ac  -i inventory_ac -a "free -m"
+  220  ls
+  221  touch new_source_file
+  222  ls
+  223  cp new_source_file /tmp/
+  224  cd ..
+  225  cd lab_3/
+  226  ansible ac123 -m debug  -i inventory_ac -a "msg:'This is my message'"
+  227  vim simple_playbook.yml
+  228  ansible-playbook  simple_playbook.yml  -i inventory_ac -l ac123
+  229  vim simple_playbook.yml
+  230  ansible-playbook  simple_playbook.yml  -i inventory_ac -l ac123
+  231  vim simple_playbook.yml
+  232  ansible-playbook  simple_playbook.yml  -i inventory_ac -l ac123
+  233  vim simple_playbook.yml
+  234  ansible-playbook  simple_playbook.yml  -i inventory_ac -l ac123
+  235  vim simple_playbook.yml 
+  236  ansible-playbook  simple_playbook.yml  -i inventory_ac -l ac123
+  237  vim simple_playbook.yml 
+  238  ansible-playbook  simple_playbook.yml  -i inventory_ac -l ac123
+  239  cat simple_playbook.yml 
+  240  ansible all -m copy -a 'content="Managed by Ansible\n" dest=/etc/motd’
+  241  ansible a123 -m copy -a 'content="Managed by Ansible\n" dest=/tmp/motd' -i inventory_ac 
+  242  ansible ac -m copy -a 'content="Managed by Ansible\n" dest=/tmp/motd' -i inventory_ac 
+  243  cat inventory_ac 
+  244  cat /tmp/motd
+  245  vim inventory_ac 
+  246  vim /tmp/file_from_tomek
+  247  vim inventory_ac 
+  248  ansible ac117 -m copy -a 'src=/tmp/file_from_tomek dest=/tmp/motd' -i inventory_ac 
+  249  ansible ac117 -m copy -a 'src=/tmp/file_from_tomek dest=/tmp/' -i inventory_ac 
+  250  ansible ac117 -m file -a 'path=/tmp/file_from_tomek state=absent' -i inventory_ac 
+  251  ansible ac117 -m file -a 'path=/tmp/modt state=absent' -i inventory_ac 
+  252  ansible ac117 -m file -a 'path=/tmp/modt state=absent' -i inventory_ac --become
+  253  ansible ac117 -m file -a 'path=/tmp/motd state=absent' -i inventory_ac --becom
+  254  cat simple_playbook.yml 
+  255  vim simple_playbook.yml 
+  256  ansible-playbook  simple_playbook.yml  -i inventory_ac -l ac123
+  257  cd ..
+  258  cd lab_5
+  259  vim main.yml
+  260  ansible-playbook  main.yml  -i inventory_ac -l ac123
+  261  rm main.yml 
+  262  ls
+  263  cat mani.yml 
+  264  ls -l
+  265  rm mani.yml
+  266  ansible-playbook  main.yml  -i inventory_ac -l ac123
+  267  exit
+  268  cd Ansible/labs/lab_5/
+  269  ls
+  270  ansible-playbook  main.yml  -i inventory_ac -l ac123
+  271  sudo yum search ansible-lint
+  272  sudo yum install ansible-lint
+  273  cd ..
+  274  cd lab_6/
+  275  ls
+  276  cat main.yml 
+  277  ansible-playbook  main.yml  -i inventory_ac -l ac123
+  278  ls -l
+  279  ls
+  280  cat check_connection.yml 
+  281  ansible-playbook  check_connection.yml  -i inventory_ac -l ac123
+  282  ansible-playbook  create_dir.yml  -i inventory_ac -l ac123
+  283  ls -l /tmp/ac123_directory_created_by_ansible_playbook/
+  284  ansible-playbook  copy_text.yml  -i inventory_ac -l ac123
+  285  cat /tmp/ac123_hello_world_ansible 
+  286  ls -l /tmp/ac123_hello_world_ansible
+  287  ansible-playbook  copy_text.yml  -i inventory_ac -l ac123
+  288  ls -l /tmp/ac123_hello_world_ansible_root 
+  289  ansible-playbook  multi_tasks.yml  -i inventory_ac -l ac123
+  290  vim /tmp/ac123_hello_world_ansible_root 
+  291  ls -l /tmp/ac123_hello_world_ansible_root
+  292  ansible-playbook  multi_tasks.yml  -i inventory_ac -l ac123
+  293  ls -l /tmp/ac123_hello_world_ansible_root
+  294  ansible-playbook  multi_tasks.yml  -i inventory_ac -l ac123
+  295  sudo chown ac:ac /tmp/ac123_hello_world_ansible_root
+  296  ls -l /tmp/ac123_hello_world_ansible_root
+  297  cat multi_tasks.yml 
+  298  ansible-playbook  multi_tasks.yml  -i inventory_ac -l ac123
+  299  cat inventory_ac 
+  300  vim inventory_ac 
+  301  cd ../lab_7
+  302  ls
+  303  cat main.yml 
+  304  ansible-playbook  main.yml -i inventory_ac -l ac123
+  305  cd ..
+  306  tree 
+  307  pwd
+  308  tree 
+  309  cd lab_7
+  310  ls
+  311  ansible-playbook  main.yml -i inventory_ac -l ac123
+  312  ansible ac123 -m setup -i inventory_ac 
+  313  ansible ac123 -m setup -i inventory_ac | less
+  314  ansible ac123 -m setup -i inventory_ac | grep -i os
+  315* ansible ac123 -m setup -
+  316  ansible-playbook  main.yml -i inventory_ac -l ac123
+  317  ls
+  318  ansible-playbook  facts.yml -i inventory_ac -l ac123
+  319  ansible ac123 -m setup -i inventory_ac | grep -i centos
+  320  ansible-playbook  facts.yml -i inventory_ac -l ac123
+  321  ls
+  322  ansible-playbook  main.yml -i inventory_ac -l ac123
+  323  cat main.yml 
+  324  ansible-playbook  main.yml -i inventory_ac -l ac123
+  325  cd ../lab_8
+  326  ls -l 
+  327  cd ../
+  328  ls
+  329  cd lab_08/
+  330  ls
+  331  ansible-playbook  extra_vars_test.yml -i inventory_ac -l ac123 -e "HOSTS=ac123 COMPANY=MyTestComp"
+  332  ansible-playbook  extra_vars_test.yml -i inventory_ac -l ac123 --extra_vars "HOSTS=ac123 COMPANY=MyTestComp"
+  333  ansible-playbook  extra_vars_test.yml -i inventory_ac -l ac123 -extra_vars "HOSTS=ac123 COMPANY=MyTestComp"
+  334  ansible-playbook  extra_vars_test.yml -i inventory_ac -l ac123 --extra-vars "HOSTS=ac123 COMPANY=MyTestComp"
+  335  ansible-playbook  extra_vars_test.yml -i inventory_ac -l ac123 -e "HOSTS=ac123 COMPANY=MyTestComp"
+  336  ansible-playbook  extra_vars_test.yml -i inventory_ac -e "HOSTS=ac123 COMPANY=MyTestComp"
+  337  cd ../lab_09/template/
+  338  ls
+  339  cd roles_simple_template/
+  340  ls
+  341  cat main.yml 
+  342  vim inventory_ac 
+  343  ansible-playbook  main.yml -i inventory_ac -l ac
+  344  vim inventory_ac 
+  345  ansible-playbook  main.yml -i inventory_ac -l ac
+  346  cd ..
+  347  cd lab_08/
+  348  ls
+  349  ls -l
+  350  ls
+  351  ansible-playbook  registry_result.yml -i inventory_ac -l ac
+  352  cat /tmp/kuku 
+  353  rm /tmp/kuku
+  354  ansible-playbook  registry_result.yml -i inventory_ac -l ac
+  355  cat registry_result.yml 
+  356  ansible-playbook  registry_result.yml -i inventory_ac -l ac
+  357  rm /tmp/kuku 
+  358  ansible-playbook  registry_result.yml -i inventory_ac -l ac
+  359  touch /tmp/kuku
+  360  ansible-playbook  registry_result.yml -i inventory_ac -l ac
+  361  rm /tmp/kuku 
+  362  ansible-playbook  registry_result.yml -i inventory_ac -l ac
+  363  ls
+  364  ls -l 
+  365  ansible-playbook  registry_result_command.yml -i inventory_ac -l ac
+  366  df -lh | grep 26GB
+  367  df -lh 
+  368  df -lh / | grep 26G
+  369  ansible-playbook  registry_result_command.yml -i inventory_ac -l ac
+  370  ansible ac123 -m setup | grep driver
+  371  ansible ac123 -m setup -i inventory_ac | grep driver
+  372  ansible ac123 -m setup -i inventory_ac 
+  373  ansible ac123 -m setup -i inventory_ac | grep device
+  374* 
+  375  ls
+  376  cd lab_09/
+  377  ls
+  378  cd ..
+  379  cd lab_10
+  380  ansible-galaxy init role-full-structure-for-role
+  381  ls
+  382  cd role-full-structure-for-role/
+  383  cd ..
+  384  rm -rf role-full-structure-for-role/
+  385  ansible-galaxy init role-full-structure-for-role
+  386  tree
+  387  cat role-full-structure-for-role/tests/test.yml 
+  388  cd ../
+  389  cd lab_9/
+  390  cd lab_09/
+  391  ls
+  392  cp inventory_ac file_operation/
+  393  cd file_operation/
+  394  cat inventory_ac 
+  395  ansible-playbook  main.yml -i inventory_ac -l ac -t setup
+  396  cat /tmp/role_lab/last_task_today.txt
+  397  ansible-playbook  main.yml -i inventory_ac -l ac -t check-file
+  398  history
+  399  pwd
+  400  cd ..
+  401  history >  history.log
