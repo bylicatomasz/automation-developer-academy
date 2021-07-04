@@ -1,0 +1,8 @@
+- hosts: all
+  tasks:
+    - name: First playbook
+      debug:
+        msg: "First message"
+    - name: Task second
+      debug:
+        msg: This is task second

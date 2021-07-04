@@ -1,0 +1,6 @@
+- hosts: all
+  tasks:
+    - name: Create dictionary
+      file:
+        path: /tmp/ac123_directory_created_by_ansible_playbook
+        state: directory

@@ -1,0 +1,7 @@
+- hosts: all
+  become: true
+  tasks:
+    - name: Copy Hello world
+      copy:
+        dest: /tmp/ac123_hello_world_ansible_root
+        content: Hello world

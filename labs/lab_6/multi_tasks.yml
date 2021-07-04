@@ -1,0 +1,13 @@
+- hosts: all
+  tasks:
+    - name: Check connection
+      ping:
+
+    - name: Create dictionary
+      file:
+        path: /tmp/ac123_directory_created_by_ansible_playbook
+        state: directory
+    - name: Copy Hello world
+      copy:
+        dest: /tmp/ac123_hello_world_ansible_root
+        content: Hello world 3
