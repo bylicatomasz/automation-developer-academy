@@ -1,0 +1,5 @@
+- hosts: "{{HOSTS}}"
+  tasks:
+    - name: Display comapny name
+      debug:
+        msg: "This is {{COMPANY}}"
