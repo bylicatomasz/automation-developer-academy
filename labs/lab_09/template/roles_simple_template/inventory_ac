@@ -1,0 +1,9 @@
+[main]
+tomek ansible_host=192.168.40.155 
+[ac]
+tomek ansible_host=192.168.40.155 
+[all:vars]
+ansible_user=ac
+ansible_password=xxxxx
+ansible_sudo_pass=linux
+ansible_connection=ssh
