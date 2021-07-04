@@ -1,0 +1,12 @@
+- hosts: all
+  vars:
+    company:
+      name: This is my company
+      employee:
+        - { name: Name_2,id: 123 }
+        - { name: Name_3,id: 321 }
+  tasks:
+    - name: Loop example
+      debug:
+        msg: "This is employee name: {{item.name}} and id: {{item.id}}"
+      loop: "{{ company.employee}}"

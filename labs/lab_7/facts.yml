@@ -1,0 +1,12 @@
+- hosts: all
+  gather_facts: true
+  tasks:
+    - name: Display os family only for RedHat
+      debug:
+        msg: "My os is {{ansible_os_family}} and distribution {{ansible_distribution}} "
+      when: ansible_os_family == "RedHat"
+
+    - name: Display os family only for Windows
+      debug:
+        msg: "My os is {{ansible_os_family}} and distribution {{ansible_distribution}} "
+      when: ansible_os_family == "Windows"
