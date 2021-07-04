@@ -1,0 +1,17 @@
+- hosts: all
+  vars:
+    myTestFile: /tmp/kuku
+  tasks:
+    - name: Check if file exist
+      stat:
+        path: "{{myTestFile}}"
+      register: file_info
+    - name: Dispaly information regarding file {{myTestFile}}
+      debug:
+        var: file_info
+      failed_when: file_info.stat.exists == false
+    - name: do action if exist file
+      copy:
+        dest: "{{myTestFile}}"
+        content: "Add to file"
+      when: file_info.stat.exists == true
