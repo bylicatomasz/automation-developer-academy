@@ -1,0 +1,16 @@
+#- include_tasks: "{{ tasks_dir }}/task-set-os-type.yml"
+
+- name: Create file {{path_to_file}}
+  stat:
+    path: "{{path_to_file}}"
+  register: file_info
+
+- name: File exist
+  debug:
+    msg: "File exist  {{path_to_file}} "
+  when: file_info.stat.exists == true
+
+- name: File not exist
+  fail:
+    msg: "File not exist  {{path_to_file}} "
+  when: file_info.stat.exists == false

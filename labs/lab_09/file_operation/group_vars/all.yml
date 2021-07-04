@@ -1,0 +1,10 @@
+# --------------------------
+# Default global variables
+# --------------------------
+
+# common tasks directory
+path_to_dictionary: /tmp/role_lab/
+path_to_file: /tmp/role_lab/last_task_today.txt
+text_put_to_file: "hello world"
+
+

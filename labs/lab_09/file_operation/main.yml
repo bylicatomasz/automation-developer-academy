@@ -1,0 +1,15 @@
+# main playbook
+
+- hosts: all
+  # do not gather facts for hosts
+  gather_facts: false
+  # finish whole playbook execution if at least one fatal error occured
+  any_errors_fatal: true
+  become: true
+  roles:
+  - role: role-create-dir
+    tags: [ "create-dir","setup" ]
+  - role: role-create-file
+    tags: [ "create-file","setup" ]
+  - role: role-check-file
+    tags: [ "check-file","setup" ]

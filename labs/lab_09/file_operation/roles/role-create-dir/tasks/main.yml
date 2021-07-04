@@ -1,0 +1,6 @@
+#- include_tasks: "{{ tasks_dir }}/task-set-os-type.yml"
+
+- name: Create dictionary {{path_to_dictionary}}
+  file:
+    path: "{{path_to_dictionary}}"
+    state: directory

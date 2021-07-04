@@ -1,0 +1,4 @@
+- block:
+    - name: Some task
+      command:
+        cmd: id

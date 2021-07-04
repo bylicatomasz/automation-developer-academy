@@ -1,0 +1,13 @@
+- hosts: all
+  vars:
+    check_voluem: /
+  tasks:
+    - name: Check space using df command
+      command:
+        cmd: "df -lh {{check_voluem}}  "
+      register: df_info
+    - name: Dispaly information regarding file {{check_voluem}}
+      debug:
+        var: df_info
+
+

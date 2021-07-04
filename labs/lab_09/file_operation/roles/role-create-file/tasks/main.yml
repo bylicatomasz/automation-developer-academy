@@ -1,0 +1,9 @@
+#- include_tasks: "{{ tasks_dir }}/task-set-os-type.yml"
+
+- name: Create file {{path_to_file}}
+  copy:
+    dest: "{{path_to_file}}"
+    content: "{{text_put_to_file}}"
+
+
+
