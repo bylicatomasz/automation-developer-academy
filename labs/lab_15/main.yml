@@ -1,0 +1,14 @@
+# main playbook
+
+- hosts: all
+  # do not gather facts for hosts
+  gather_facts: false
+  # finish whole playbook execution if at least one fatal error occured
+  any_errors_fatal: true
+  become: true
+  roles:
+  - role: role-check-connectivity
+    tags: [ "check-connection","setup" ]
+  - role: role-install-httpd
+    tags: [ "install-httpd","setup" ]
+

@@ -1,0 +1,27 @@
+#- include_tasks: "{{ tasks_dir }}/task-set-os-type.yml"
+
+- name: Install httpd server
+  yum:
+    name: httpd
+    state: present
+
+
+- name: Enable service and start
+  service:
+    name: httpd
+    state: started
+    enabled: yes
+
+- name: Unbloc firewalls https
+  firewalld:
+    service: http
+    permanent: yes
+    state: enabled
+    immediate: yes
+
+- name: Unbloc firewalls https
+  firewalld:
+    service: https
+    permanent: yes
+    state: enabled
+    immediate: yes
