@@ -1,0 +1,25 @@
+#- include_tasks: "{{ tasks_dir }}/task-set-os-type.yml"
+
+- name: Install php server
+  yum:
+    name: php
+    state: present
+
+
+- name: Copy info.php
+  copy:
+    src: info.php
+    dest: /var/www/html/info.php
+
+- name: Restart httpd
+  service:
+    name: httpd
+    state: restarted
+
+
+- name: Check that a page returns a status 200 and fail if the word PHP is  in the page contents
+  uri:
+    url: http://localhost/info.php
+    return_content: yes
+  register: this
+  failed_when: "'PHP' not in this.content"

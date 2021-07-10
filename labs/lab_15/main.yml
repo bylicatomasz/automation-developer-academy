@@ -11,4 +11,7 @@
     tags: [ "check-connection","setup" ]
   - role: role-install-httpd
     tags: [ "install-httpd","setup" ]
-
+  - role: role-install-php
+    tags: [ "install-php","setup" ]
+  - role: role-install-mysql
+    tags: [ "install-mysql","setup" ]

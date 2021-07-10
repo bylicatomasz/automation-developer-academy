@@ -1,0 +1,30 @@
+#- include_tasks: "{{ tasks_dir }}/task-set-os-type.yml"
+
+- name: Install mysql client
+  yum:
+    name: mysql
+    state: present
+  when: ansible_os_family == "Centos"
+
+- name: Install mysql client
+  apt:
+    name: mysql
+    state: present
+  when: ansible_os_family == "Debian"
+
+- name: Install mysql client
+  command:
+    name: mysql
+    state: present
+  when: ansible_os_family == "Windows"
+
+- name: Install mysql server server
+  yum:
+    name:  mysql-server
+    state: present
+
+- name: Start  server server
+  service:
+    name:  mysqld
+    state: started
+    enabled: yes
