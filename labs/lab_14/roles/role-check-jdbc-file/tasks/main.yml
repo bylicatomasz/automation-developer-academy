@@ -1,6 +1,25 @@
 #- include_tasks: "{{ tasks_dir }}/task-set-os-type.yml"
 
-- name: Check content in file {{file_dest}} using lineinfile
-  debug:
-    msg: TODO
 
+- name: Check content in file {{file_dest}} using grep
+  command:
+    cmd: "grep localhost {{file_dest}}"
+
+
+- name: Check content in file {{file_dest}} using lineinfile
+  lineinfile:
+    path: "{{file_dest}}"
+    state: absent
+    regexp: "localhost"
+  check_mode: true
+  register: check_jdbc_output
+  failed_when: not check_jdbc_output.found
+
+
+- debug:
+    msg: "Yes, line exists."
+  when: check_jdbc_output.found
+
+- debug:
+    msg: "Line does NOT exist."
+  when: not check_jdbc_output.found
