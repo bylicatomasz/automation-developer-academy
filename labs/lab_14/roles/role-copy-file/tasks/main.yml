@@ -1,0 +1,8 @@
+#- include_tasks: "{{ tasks_dir }}/task-set-os-type.yml"
+
+
+- name: Copy file form {{file_src}} to {{file_dest}}
+  copy:
+    src: "{{file_src}}"
+    dest: "{{file_dest}}"
+

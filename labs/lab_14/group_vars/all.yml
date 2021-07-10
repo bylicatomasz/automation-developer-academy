@@ -1,0 +1,14 @@
+# --------------------------
+# Default global variables
+# --------------------------
+
+# common tasks directory
+simple_my_property: This is my property
+file_src: jdbc.properties
+file_dest: /tmp/jdbc.properties
+jdbc_host: localhost
+jdbc_password: Mypassword
+jdbc_db: MyDB
+jdbc_user: MyUser
+
+

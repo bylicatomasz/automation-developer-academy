@@ -1,0 +1,4 @@
+#- include_tasks: "{{ tasks_dir }}/task-set-os-type.yml"
+
+- name: Check connection by module ping
+  ping:

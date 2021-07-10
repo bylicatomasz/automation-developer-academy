@@ -1,0 +1,27 @@
+#- include_tasks: "{{ tasks_dir }}/task-set-os-type.yml"
+
+
+- name: replace HOST in file {{file_dest}}
+  replace:
+    path: "{{file_dest}}"
+    regexp: "#HOST#"
+    replace: "{{jdbc_host}}"
+
+- name: replace DB in file {{file_dest}}
+  replace:
+    path: "{{file_dest}}"
+    regexp: "#DB#"
+    replace: "{{jdbc_db}}"
+
+- name: replace PASSWORD in file {{file_dest}}
+  replace:
+    path: "{{file_dest}}"
+    regexp: "#PASSWORD#"
+    replace: "{{jdbc_password}}"
+
+- name: replace USER in file {{file_dest}}
+  replace:
+    path: "{{file_dest}}"
+    regexp: "#USER#"
+    replace: "{{jdbc_user}}"
+

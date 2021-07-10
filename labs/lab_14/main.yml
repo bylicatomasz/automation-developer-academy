@@ -1,0 +1,19 @@
+# main playbook
+
+- hosts: all
+  # do not gather facts for hosts
+  gather_facts: false
+  # finish whole playbook execution if at least one fatal error occured
+  any_errors_fatal: true
+  become: true
+  roles:
+  - role: role-check-connectivity
+    tags: [ "check-connection","setup" ]
+  - role: role-copy-file
+    tags: [ "copy-file","setup" ]
+  - role: role-replace-file
+    tags: ["replace-file","setup"]
+  - role: role-check-jdbc-file
+    tags: ["check-jdbc-file","setup"]
+
+

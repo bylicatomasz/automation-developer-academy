@@ -1,0 +1,10 @@
+#- include_tasks: "{{ tasks_dir }}/task-set-os-type.yml"
+
+- name: Display msg
+  debug:
+    msg: This is message
+
+- name: Display second msg
+  debug:
+    msg: "This is message {{simple_my_property}}"
+

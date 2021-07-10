@@ -1,0 +1,6 @@
+#- include_tasks: "{{ tasks_dir }}/task-set-os-type.yml"
+
+- name: Check content in file {{file_dest}} using lineinfile
+  debug:
+    msg: TODO
+
