@@ -1,0 +1,182 @@
+
+
+
+
+  476  sudo vim /etc/httpd/conf.d/welcome.conf
+  477  cd ../
+  478  cd lab_15/
+  479  ls
+  480  ansible-playbook  main.yml -i inventory_ac -l ac -t install-php
+  481  php -version
+  482  vim /etc/httpd/conf.d/welcome.conf
+  483  sudo vim /etc/httpd/conf.d/welcome.conf
+  484  systemctl reload httpd
+  485  sudo systemctl reload httpd
+  486  vim /etc/httpd/conf.d/php.conf
+  487  ls /var/log/
+  488  ls /var/log/httpd/
+  489  sudo ls /var/log/httpd/
+  490  sudo ls /var/log/httpd/error_log
+  491  sudo cat /var/log/httpd/error_log
+  492  sudo systemctl restart httpd
+  493  ansible-playbook  main.yml -i inventory_ac -l ac -t install-php
+  494  ansible-playbook  main.yml -i inventory_ac -l ac -t install-mysql
+  495  mysql -u root
+  496  systemctl status mysqld
+  497  ansible-playbook  main.yml -i inventory_ac -l ac -t install-mysql
+  498  systemctl status mysqld
+  499  mysql -u root
+  500  systemctl status mysqld
+  501  mysql -u root
+
+  544  chmod -r 0755 /var/www/html/
+  545  sudo chmod -r 0755 /var/www/html/
+  546  sudo chmod -R 0755 /var/www/html/
+  547  ls -l /var/www/html/
+  548  systemctl status httpd
+  549  vim /usr/lib/systemd/system/httpd.service
+  550  vim /system.slice/httpd.service
+  551  vim /usr/lib/systemd/system/httpd.service.d/php-fpm.conf
+  552  :q
+  553  ps -aus
+  554  ps -asu
+  555  ps -asx
+  556  ps -aux
+  557  ls -l /var/www/html/
+  558  ls -ld /var/www/html
+  559  sudo chmod -R 0775 /var/www/html
+  560  sudo chmod -R 0777 /var/www/html
+  561  sudo rm -Rf  /var/www/html/*
+  562  sudo chmod -R 0755 /var/www/html
+  563  ansible-playbook  main.yml -i inventory_ac -l ac -t install-wordpress
+  564  ls -l /var/www/html/
+  565  cp /tmp/1/wordpress-5.7.2.tar.gz /var/www/html/
+  566  sudo cp /tmp/1/wordpress-5.7.2.tar.gz /var/www/html/
+  567  ls
+  568  ls /var/www/html/
+  569  exit
+
+  582  chmod u+x test2.sh
+  583  ./test2.sh
+  584  sed -i -e 's/\r$//' ./test2.sh
+  585  ./test2.sh
+  586  cd ..
+  587  cd lab_15
+  588  ls
+  589  ansible-playbook  main.yml -i inventory_ac -l ac -t install-wordpress
+  590  rm /tmp/wordpress-5.7.2.tar.gz
+  591  sudo rm /tmp/wordpress-5.7.2.tar.gz
+  592  ansible-playbook  main.yml -i inventory_ac -l ac -t install-wordpress
+  593  ls -l /tmp/wordpress-5.7.2.tar.gz
+  594  ansible-playbook  main.yml -i inventory_ac -l ac -t install-wordpress
+  595  ls
+  596  ansible-vault encrypt --vault-id inventory_password@prompt inventory_ac
+  597  ls -l
+  598  cat inventory_ac
+  599  ansible-playbook  main.yml -i inventory_ac -l ac -t install-wordpress --vault-id inventory_password@prompt
+  600  cat inventory_ac
+  601  ansible-vault edit --vault-id inventory_password@prompt inventory_ac
+  602  ansible-vault encrypt_string --vault-id dev@prompt 'secretPassword' --name 'the_dev_secret'
+  603  vim group_vars/all.yml
+  604  history
+  605  cd ../lab_16
+
+
+
+	    601  ansible-vault edit --vault-id inventory_password@prompt inventory_ac
+  602  ansible-vault encrypt_string --vault-id dev@prompt 'secretPassword' --name 'the_dev_secret'
+  603  vim group_vars/all.yml
+  604  history
+  605  cd ../lab_16
+  606  ls
+  607  cat test.sh
+  608  ./test.sh
+  609  cat test.sh
+  610  ./test.sh
+  611  sed -i -e 's/\r$//' ./test.sh
+  612  ./test.sh
+  613  cat test.sh
+  614  ./test.sh
+  615  sed -i -e 's/\r$//' ./test.sh
+  616  ./test.sh
+  617  sed -i -e 's/\r$//' ./test.sh
+  618  ./test.sh
+  619  ls -l test.sh
+  620  chmod u-x test.sh
+  621  ls -l test.sh
+
+
+  657  vim test.sh
+  658  ./test.sh
+  659  vim test.sh
+  660  ./test.sh
+  661  cat ../lab_15/inventory_ac
+  662  cat ../lab_14/inventory_ac
+  663  ssh ac@192.168.40.113 -c hostname
+  664  ssh ac@192.168.40.113  hostname
+  665  vim test.sh
+  666  cat /etc/yum.conf
+  667  export http_proxy=http://192.168.92.11:3128
+  668  export https_proxy=http://192.168.92.11:3128
+  671  curl https://google.com
+  672  curl http://google.com
+  673  cat /etc/yum.conf
+  674  export https_proxy=http://User:PASSWORD@192.168.92.11:3128
+  675  export http_proxy=http://User:PASSWORD@192.168.92.11:3128
+  676  culr http://google.com
+  677  curl http://google.com
+  678  wget https://dev96702.service-now.com/mid_server_download_ui.do#
+  679  ls -l
+  680  wget https://install.service-now.com/glide/distribution/builds/package/app-signed/mid/2021/04/14/mid.paris-06-24-2020__patch7a-03-29-2021_04-14-2021_1027.linux.x86-64.zip
+  681  ls
+
+
+  680  wget https://install.service-now.com/glide/distribution/builds/package/app-signed/mid/2021/04/14/mid.paris-06-24-2020__patch7a-03-29-2021_04-14-2021_1027.linux.x86-64.zip
+  681  ls
+  682  mkdir /opt/mid_server/
+  683  mkdir /tmp/mid_server/
+  684  mv mid.paris-06-24-2020__patch7a-03-29-2021_04-14-2021_1027.linux.x86-64.zip /tmp/mid_server/
+  685  cd /tmp/mid_server/
+  686  ls
+  687  cat /etc/yum.conf
+  688  unzip mid.paris-06-24-2020__patch7a-03-29-2021_04-14-2021_1027.linux.x86-64.zip
+  689  ls
+  690  cd agent/
+  691  ls
+  692  vim config.xml
+  693  ./start.sh
+  694  tail -f logs/agent0.log.0
+  695  ansible --version
+  696  cd
+  697  cd
+  698  cd Ansible/labs/lab_15/
+  699  pwd
+  700  cd ../lab_14
+  701  cat main.yml
+  702  history
+  703  history > history.log
+
+  680  wget https://install.service-now.com/glide/distribution/builds/package/app-signed/mid/2021/04/14/mid.paris-06-24-2020__patch7a-03-29-2021_04-14-2021_1027.linux.x86-64.zip
+  681  ls
+  682  mkdir /opt/mid_server/
+  683  mkdir /tmp/mid_server/
+  684  mv mid.paris-06-24-2020__patch7a-03-29-2021_04-14-2021_1027.linux.x86-64.zip /tmp/mid_server/
+  685  cd /tmp/mid_server/
+  686  ls
+  687  cat /etc/yum.conf
+  688  unzip mid.paris-06-24-2020__patch7a-03-29-2021_04-14-2021_1027.linux.x86-64.zip
+  689  ls
+  690  cd agent/
+  691  ls
+  692  vim config.xml
+  693  ./start.sh
+  694  tail -f logs/agent0.log.0
+  695  ansible --version
+  696  cd
+  697  cd
+  698  cd Ansible/labs/lab_15/
+  699  pwd
+  700  cd ../lab_14
+  701  cat main.yml
+  702  history
+  703  history > history.log
