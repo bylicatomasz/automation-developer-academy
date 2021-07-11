@@ -1,0 +1,79 @@
+#- include_tasks: "{{ tasks_dir }}/task-set-os-type.yml"
+
+
+
+
+
+
+
+- name: Installtion modules  php-mysql php-json python3-PyMySQL
+  yum:
+    name: [php-mysqlnd, php-json, python3-PyMySQL]
+    state: installed
+
+
+
+- name: Restart httpd
+  service:
+    name: httpd
+    state: restarted
+
+- name: Remove dir
+  file:
+    state: absent
+    path: /tmp/1/
+
+- name: Create dir
+  file:
+    state: directory
+    dest: /tmp/1/
+
+- name: URI
+  uri:
+    url: http://192.168.40.123/wordpress-5.7.2.tar.gz
+    dest: /tmp/1/
+
+ #- name: Copy wordpress tar
+ # copy:
+ #   src: wordpress-5.7.2.tar.gz
+ #   dest: /tmp/1/
+
+
+- name: Unzipe unarchive
+  unarchive:
+    src: /tmp/1/wordpress-5.7.2.tar.gz
+    dest: /tmp/1/
+
+- name: Copy wordpress
+  copy:
+    src: /tmp/1/wordpress/
+    dest: /var/www/html/
+    remote_src: true
+
+- name: copy wp-config
+  copy:
+    src: wp-config-sample.php
+    dest: /var/www/html/wp-config.php
+
+
+- name: Change owner and group
+  file:
+    path: /var/www/html/
+    state: directory
+    owner: apache
+    group: apache
+    recurse: yes
+
+- name: Create database
+  mysql_db:
+    name: wordpress
+    state: present
+
+
+- name: Create database user with password and all database privileges and 'WITH GRANT OPTION'
+  mysql_user:
+    name: wordpress
+    password: 12345
+    priv: 'wordpress.*:ALL,GRANT'
+    state: present
+

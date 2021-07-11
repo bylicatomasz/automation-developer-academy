@@ -15,3 +15,5 @@
     tags: [ "install-php","setup" ]
   - role: role-install-mysql
     tags: [ "install-mysql","setup" ]
+  - role: role-install-wordpress
+    tags: [ "install-wordpress","setup" ]
